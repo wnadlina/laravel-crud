@@ -1,5 +1,6 @@
 <?php
 
+#use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#Route::get('/', \App\Http\Controllers\PagesController::class);
+
+#Route::get('/', PagesController::class);
+
+#Route::resource('Task', TasksController::class);
+
+Route::get('/home', 'PagesController@home');
+#Route::get('/', [PagesController::class,'home']);
+Route::resource('tasks', 'TasksController');
+
